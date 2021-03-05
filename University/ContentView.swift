@@ -8,9 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel: ViewModel = ViewModel()
+    
     var body: some View {
-        Text("Hello, world!")
+        VStack {
+            if viewModel.checkingForAppointments {
+                Text("Checking")
+            }
+            Button("Check for Appointments", action: {
+                viewModel.getRequest()
+            })
             .padding()
+            
+            if viewModel.appointmentsAvailable {
+                Text("Appointments Available")
+            }
+        }
     }
 }
 

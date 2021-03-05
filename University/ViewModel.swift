@@ -13,14 +13,18 @@ class ViewModel: ObservableObject {
     
     let signUpAndScheduleURL = "https://mychart-openscheduling.et1130.epichosted.com/MyChart/SignupAndSchedule/EmbeddedSchedule?id=51585&dept=10554002&vt=1788&utm_medium=email&utm_source=health_focus&utm_campaign=2-22_vaccine_appointments"
     
+    @Published var appointmentsAvailable = false
+    @Published var checkingForAppointments = false
     init() {
-        getRequest()
+        
     }
     
     func getRequest() {
+        checkingForAppointments = true
         AF.request(signUpAndScheduleURL).responseString { response in
             guard let doc: Document = try? SwiftSoup.parse(response.value ?? ""), let urlResponse = response.response else {
                 print("Error")
+                self.checkingForAppointments = false
                 return
             }
             let requestVerificationToken = self.getRequestVerificationToken(document: doc)
@@ -66,6 +70,8 @@ class ViewModel: ObservableObject {
             
             AF.request(universityApiUrl, method: .post, parameters: data, headers: headers).responseString { response in
                 print(response.value!)
+                self.appointmentsAvailable = true
+                self.checkingForAppointments = false
             }
         }
     }
@@ -82,7 +88,7 @@ class ViewModel: ObservableObject {
             let transaction_id = elements.get(0)
             token = try transaction_id.val()
         } catch {
-            // error
+            self.checkingForAppointments = false
         }
         return token
     }
