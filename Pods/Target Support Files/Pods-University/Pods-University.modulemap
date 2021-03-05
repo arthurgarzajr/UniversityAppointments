@@ -1,0 +1,6 @@
+framework module Pods_University {
+  umbrella header "Pods-University-umbrella.h"
+
+  export *
+  module * { export * }
+}
