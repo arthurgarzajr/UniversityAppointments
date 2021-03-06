@@ -8,22 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		72D8AEA07DC6ACCE72EB5017 /* Pods_University.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE5FF74A006951FA2D4E6CE /* Pods_University.framework */; };
+		8E73598525F35AEF00C4DBC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E73598425F35AEF00C4DBC6 /* GoogleService-Info.plist */; };
 		8EA3866325F1D939003B399A /* UniversityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3866225F1D939003B399A /* UniversityApp.swift */; };
-		8EA3866525F1D939003B399A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3866425F1D939003B399A /* ContentView.swift */; };
+		8EA3866525F1D939003B399A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3866425F1D939003B399A /* MainView.swift */; };
 		8EA3866725F1D93C003B399A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EA3866625F1D93C003B399A /* Assets.xcassets */; };
 		8EA3866A25F1D93C003B399A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EA3866925F1D93C003B399A /* Preview Assets.xcassets */; };
 		8EA3867625F1DA1A003B399A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3867525F1DA1A003B399A /* ViewModel.swift */; };
+		8EA3867E25F20246003B399A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3867D25F20246003B399A /* Response.swift */; };
+		8EA3868125F208DF003B399A /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3868025F208DF003B399A /* ActivityIndicatorView.swift */; };
+		8EA3868425F20900003B399A /* ActivityIndicatorViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3868325F20900003B399A /* ActivityIndicatorViewRepresentable.swift */; };
+		8EA3868825F28097003B399A /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3868725F28097003B399A /* SafariView.swift */; };
+		8EA8147E25F34661009F9293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8147D25F34661009F9293 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		799BE525D69BE0B4A1970E09 /* Pods-University.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University.release.xcconfig"; path = "Target Support Files/Pods-University/Pods-University.release.xcconfig"; sourceTree = "<group>"; };
+		8E73598325F353FA00C4DBC6 /* University.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = University.entitlements; sourceTree = "<group>"; };
+		8E73598425F35AEF00C4DBC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8EA3865F25F1D939003B399A /* University.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = University.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA3866225F1D939003B399A /* UniversityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityApp.swift; sourceTree = "<group>"; };
-		8EA3866425F1D939003B399A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8EA3866425F1D939003B399A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8EA3866625F1D93C003B399A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EA3866925F1D93C003B399A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8EA3866B25F1D93C003B399A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EA3867525F1DA1A003B399A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		8EA3867D25F20246003B399A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		8EA3868025F208DF003B399A /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		8EA3868325F20900003B399A /* ActivityIndicatorViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewRepresentable.swift; sourceTree = "<group>"; };
+		8EA3868725F28097003B399A /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		8EA8147D25F34661009F9293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADE5FF74A006951FA2D4E6CE /* Pods_University.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_University.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8AA742262CED7F2E4AD0E3 /* Pods-University.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University.debug.xcconfig"; path = "Target Support Files/Pods-University/Pods-University.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +73,7 @@
 		8EA3865625F1D939003B399A = {
 			isa = PBXGroup;
 			children = (
+				8E73598425F35AEF00C4DBC6 /* GoogleService-Info.plist */,
 				8EA3866125F1D939003B399A /* University */,
 				8EA3866025F1D939003B399A /* Products */,
 				6DA4C022B2F70EB28E7AD250 /* Pods */,
@@ -78,12 +92,18 @@
 		8EA3866125F1D939003B399A /* University */ = {
 			isa = PBXGroup;
 			children = (
+				8E73598325F353FA00C4DBC6 /* University.entitlements */,
+				8EA3867C25F20233003B399A /* Models */,
 				8EA3866225F1D939003B399A /* UniversityApp.swift */,
-				8EA3866425F1D939003B399A /* ContentView.swift */,
+				8EA3866425F1D939003B399A /* MainView.swift */,
 				8EA3866625F1D93C003B399A /* Assets.xcassets */,
 				8EA3866B25F1D93C003B399A /* Info.plist */,
 				8EA3866825F1D93C003B399A /* Preview Content */,
 				8EA3867525F1DA1A003B399A /* ViewModel.swift */,
+				8EA3868025F208DF003B399A /* ActivityIndicatorView.swift */,
+				8EA3868325F20900003B399A /* ActivityIndicatorViewRepresentable.swift */,
+				8EA3868725F28097003B399A /* SafariView.swift */,
+				8EA8147D25F34661009F9293 /* AppDelegate.swift */,
 			);
 			path = University;
 			sourceTree = "<group>";
@@ -94,6 +114,14 @@
 				8EA3866925F1D93C003B399A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8EA3867C25F20233003B399A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8EA3867D25F20246003B399A /* Response.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +185,7 @@
 			files = (
 				8EA3866A25F1D93C003B399A /* Preview Assets.xcassets in Resources */,
 				8EA3866725F1D93C003B399A /* Assets.xcassets in Resources */,
+				8E73598525F35AEF00C4DBC6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,9 +238,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EA3866525F1D939003B399A /* ContentView.swift in Sources */,
+				8EA8147E25F34661009F9293 /* AppDelegate.swift in Sources */,
+				8EA3867E25F20246003B399A /* Response.swift in Sources */,
+				8EA3868125F208DF003B399A /* ActivityIndicatorView.swift in Sources */,
+				8EA3868425F20900003B399A /* ActivityIndicatorViewRepresentable.swift in Sources */,
+				8EA3866525F1D939003B399A /* MainView.swift in Sources */,
 				8EA3867625F1DA1A003B399A /* ViewModel.swift in Sources */,
 				8EA3866325F1D939003B399A /* UniversityApp.swift in Sources */,
+				8EA3868825F28097003B399A /* SafariView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +278,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -305,7 +339,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -340,6 +374,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = University/University.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"University/Preview Content\"";
 				DEVELOPMENT_TEAM = A3Q9RY428D;
@@ -363,6 +399,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = University/University.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"University/Preview Content\"";
 				DEVELOPMENT_TEAM = A3Q9RY428D;

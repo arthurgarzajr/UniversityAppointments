@@ -8,18 +8,35 @@
 import Foundation
 import Alamofire
 import SwiftSoup
+import Combine
 
 class ViewModel: ObservableObject {
+
+    let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
     
     let signUpAndScheduleURL = "https://mychart-openscheduling.et1130.epichosted.com/MyChart/SignupAndSchedule/EmbeddedSchedule?id=51585&dept=10554002&vt=1788&utm_medium=email&utm_source=health_focus&utm_campaign=2-22_vaccine_appointments"
     
     @Published var appointmentsAvailable = false
     @Published var checkingForAppointments = false
+    
+    @Published var shouldCheckForAppointments = false
+    @Published var showAppointmentsPage = false
+    
+    var subscriptions = Set<AnyCancellable>()
+    
+    var timer = Timer()
+    let delay = 2.0
+    
     init() {
-        
+        $appointmentsAvailable.sink { available in
+            if available {
+                self.notificationFeedbackGenerator.notificationOccurred(.success)
+            }
+        }
+        .store(in: &subscriptions)
     }
     
-    func getRequest() {
+    func checkForAppointments() {
         checkingForAppointments = true
         AF.request(signUpAndScheduleURL).responseString { response in
             guard let doc: Document = try? SwiftSoup.parse(response.value ?? ""), let urlResponse = response.response else {
@@ -68,10 +85,20 @@ class ViewModel: ObservableObject {
                 "filters": "{\"Providers\":{\"51585\":true},\"Departments\":{\"10554002\":true},\"DaysOfWeek\":{\"0\":true,\"1\":true,\"2\":true,\"3\":true,\"4\":true,\"5\":true,\"6\":true},\"TimesOfDay\":\"both\"}"
             ]
             
-            AF.request(universityApiUrl, method: .post, parameters: data, headers: headers).responseString { response in
-                print(response.value!)
-                self.appointmentsAvailable = true
+            AF.request(universityApiUrl, method: .post, parameters: data, headers: headers).responseJSON { response in
+                let dictionary = response.value as! NSDictionary
+                print(dictionary)
+                if let appointments = dictionary["ByDateThenProviderCollated"] as? NSDictionary, appointments.count > 0 {
+                    self.appointmentsAvailable = true
+                } else {
+                    self.appointmentsAvailable = false
+                }
+                
                 self.checkingForAppointments = false
+                
+                if self.shouldCheckForAppointments {
+                    self.startDelayTimer()
+                }
             }
         }
     }
@@ -99,5 +126,33 @@ class ViewModel: ObservableObject {
             cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: URL)
         }
         return cookies
+    }
+    
+    func startDelayTimer() {
+        
+        // cancel the timer in case the button is tapped multiple times
+        timer.invalidate()
+        
+        // start the timer
+        timer = Timer.scheduledTimer(timeInterval: delay, target: self, selector: #selector(delayedAction), userInfo: nil, repeats: false)
+    }
+    
+    // function to be called after the delay
+    @objc func delayedAction() {
+        checkForAppointments()
+    }
+    
+    func startChecking() {
+        shouldCheckForAppointments = true
+        checkForAppointments()
+    }
+    
+    func stopChecking() {
+        shouldCheckForAppointments = false
+        timer.invalidate()
+    }
+    
+    func deleteCookies() {
+        AF.session.configuration.httpCookieStorage?.cookies?.forEach(HTTPCookieStorage.shared.deleteCookie)
     }
 }

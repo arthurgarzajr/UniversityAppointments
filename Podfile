@@ -8,4 +8,7 @@ target 'University' do
   # Pods for University
 	pod 'Alamofire'
   pod 'SwiftSoup'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 end
