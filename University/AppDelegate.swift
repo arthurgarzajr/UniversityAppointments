@@ -34,7 +34,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("Yup")
+        
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
@@ -52,7 +52,24 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         completionHandler(UIBackgroundFetchResult.newData)
     }
     
-    
+    // This function will be called when the app receive notification
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+      // show the notification alert (banner), and with sound
+      completionHandler([.alert, .sound])
+    }
+      
+    // This function will be called right after user tap on the notification
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let chromeLink = Constants.signUpAndScheduleURL.replacingOccurrences(of: "https://", with: "googlechrome://")
+        if UIApplication.shared.canOpenURL(URL(string: chromeLink)!) {
+            UIApplication.shared.open(URL(string: chromeLink)!)
+        } else {
+            UIApplication.shared.open(URL(string: Constants.signUpAndScheduleURL)!)
+        }
+      completionHandler()
+    }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("Firebase registration token: \(String(describing: fcmToken))")

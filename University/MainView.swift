@@ -13,7 +13,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-
+                
                 HStack {
                     
                     Button {
@@ -43,33 +43,58 @@ struct MainView: View {
                         .background(Color.red)
                     }
                     .cornerRadius(12.0)
-                    
+                    Spacer()
                 }
+                .padding()
+                
+                HStack {
+                    Stepper("Delay in seconds", value: $viewModel.delay, in: 0...60)
+                        .padding([.leading, .trailing])
+                    Text(String(describing: viewModel.delay))
+                        .padding(.trailing)
+                }
+            
+                
+                
                 if viewModel.appointmentsAvailable {
-                    Button {
-                        viewModel.showAppointmentsPage = true
-                    } label: {
+                    Spacer()
+                    VStack {
                         HStack {
                             Image(systemName: "calendar.badge.plus")
-                            Text("Appointments Available")
+                                .font(.headline)
+                            Text("APPOINTMENTS DETECTED")
+                                .font(.headline)
+                                .fontWeight(.bold)
                         }
-                        
-                        .foregroundColor(.white)
                         .padding()
-                        .background(Color.green)
+                        Text(viewModel.appointmentsAvailableMessage)
                     }
-                    .cornerRadius(12.0)
-                    .sheet(isPresented: $viewModel.showAppointmentsPage, content: {
-                        SafariView(url: URL(string: viewModel.signUpAndScheduleURL))
-                    })
                 }
+                
+                Spacer()
+                
+                Button {
+                    viewModel.showAppointmentsPage = true
+                } label: {
+                    HStack {
+                        Image(systemName: "safari")
+                        Text("Open Scheduling Page")
+                    }
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.green)
+                }
+                .cornerRadius(12.0)
+                .padding()
+                .sheet(isPresented: $viewModel.showAppointmentsPage, content: {
+                    SafariView(url: URL(string: viewModel.signUpAndScheduleURL))
+                })
             }
             
             .navigationTitle("University Checker")
             .navigationBarItems(trailing: viewModel.checkingForAppointments ? AnyView(ActivityIndicatorView(message: "Checking")) : AnyView(EmptyView()))
             
         }
-        
     }
 }
 

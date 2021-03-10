@@ -9,14 +9,17 @@ import Foundation
 import Alamofire
 import SwiftSoup
 import Combine
+import AVKit
 
 class ViewModel: ObservableObject {
 
     let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
     
-    let signUpAndScheduleURL = "https://mychart-openscheduling.et1130.epichosted.com/MyChart/SignupAndSchedule/EmbeddedSchedule?id=51585&dept=10554002&vt=1788&utm_medium=email&utm_source=health_focus&utm_campaign=2-22_vaccine_appointments"
+    let signUpAndScheduleURL = Constants.signUpAndScheduleURL
     
     @Published var appointmentsAvailable = false
+    @Published var appointmentsAvailableMessage = ""
+    
     @Published var checkingForAppointments = false
     
     @Published var shouldCheckForAppointments = false
@@ -24,26 +27,54 @@ class ViewModel: ObservableObject {
     
     var subscriptions = Set<AnyCancellable>()
     
+    
+    
+    var appointmentSoundEffect: AVAudioPlayer?
+    
     var timer = Timer()
-    let delay = 2.0
+    
+    @Published var delay: Int = 0
     
     init() {
         $appointmentsAvailable.sink { available in
             if available {
                 self.notificationFeedbackGenerator.notificationOccurred(.success)
+                self.playAppointmentsDetectedSound()
             }
         }
         .store(in: &subscriptions)
+        
+
+        let audioSession = AVAudioSession.sharedInstance()
+
+        do {
+            try audioSession.setCategory(AVAudioSession.Category.playAndRecord, mode: .spokenAudio, options: .defaultToSpeaker)
+            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            
+        }
+    }
+    
+    func main() {
+        // Check if we should start checking for appointments
+        shouldCheckForAppointments = UserDefaults.standard.bool(forKey: "shouldCheckForAppointments")
+        if shouldCheckForAppointments {
+            checkForAppointments()
+        }
     }
     
     func checkForAppointments() {
         checkingForAppointments = true
+        
+        self.clearCookies(for: self.signUpAndScheduleURL)
+        
         AF.request(signUpAndScheduleURL).responseString { response in
             guard let doc: Document = try? SwiftSoup.parse(response.value ?? ""), let urlResponse = response.response else {
                 print("Error")
                 self.checkingForAppointments = false
                 return
             }
+            
             let requestVerificationToken = self.getRequestVerificationToken(document: doc)
             let cookies = self.getCookies(urlResponse: urlResponse)
             let universityApiUrl = self.getUniversityAPIURL()
@@ -86,11 +117,25 @@ class ViewModel: ObservableObject {
             ]
             
             AF.request(universityApiUrl, method: .post, parameters: data, headers: headers).responseJSON { response in
-                let dictionary = response.value as! NSDictionary
+                guard let dictionary = response.value as? NSDictionary else {
+                    self.appointmentsAvailable = false
+                    if self.shouldCheckForAppointments {
+                        self.startDelayTimer()
+                    }
+                    return
+                }
                 print(dictionary)
                 if let appointments = dictionary["ByDateThenProviderCollated"] as? NSDictionary, appointments.count > 0 {
+                    print("Available")
                     self.appointmentsAvailable = true
+                    if appointments.count == 1 {
+                        self.appointmentsAvailableMessage = "1 appointment available"
+                    } else {
+                        self.appointmentsAvailableMessage = String(appointments.count) + " appointments available"
+                    }
                 } else {
+                    print("Not Available")
+                    self.appointmentsAvailableMessage = ""
                     self.appointmentsAvailable = false
                 }
                 
@@ -134,9 +179,8 @@ class ViewModel: ObservableObject {
         timer.invalidate()
         
         // start the timer
-        timer = Timer.scheduledTimer(timeInterval: delay, target: self, selector: #selector(delayedAction), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: TimeInterval(delay), target: self, selector: #selector(delayedAction), userInfo: nil, repeats: false)
     }
-    
     // function to be called after the delay
     @objc func delayedAction() {
         checkForAppointments()
@@ -144,15 +188,38 @@ class ViewModel: ObservableObject {
     
     func startChecking() {
         shouldCheckForAppointments = true
-        checkForAppointments()
+        UserDefaults.standard.set(true, forKey: "shouldCheckForAppointments")
+        main()
     }
     
     func stopChecking() {
         shouldCheckForAppointments = false
+        UserDefaults.standard.set(true, forKey: "shouldCheckForAppointments")
         timer.invalidate()
     }
     
-    func deleteCookies() {
-        AF.session.configuration.httpCookieStorage?.cookies?.forEach(HTTPCookieStorage.shared.deleteCookie)
+    func clearCookies(for urlString: String) {
+        guard let url = URL(string: urlString), !showAppointmentsPage else {
+            return
+        }
+        
+        let cstorage = HTTPCookieStorage.shared
+        if let cookies = cstorage.cookies(for: url) {
+            for cookie in cookies {
+                cstorage.deleteCookie(cookie)
+            }
+        }
+    }
+    
+    func playAppointmentsDetectedSound() {
+        let path = Bundle.main.path(forResource: "me-too.caf", ofType: nil)!
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            appointmentSoundEffect = try AVAudioPlayer(contentsOf: url)
+            appointmentSoundEffect?.play()
+        } catch {
+            // couldn't load file :(
+        }
     }
 }

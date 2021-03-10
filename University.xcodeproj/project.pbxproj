@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		72D8AEA07DC6ACCE72EB5017 /* Pods_University.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE5FF74A006951FA2D4E6CE /* Pods_University.framework */; };
 		8E73598525F35AEF00C4DBC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E73598425F35AEF00C4DBC6 /* GoogleService-Info.plist */; };
+		8E73598925F496F300C4DBC6 /* good-things-happen.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8E73598825F496F300C4DBC6 /* good-things-happen.caf */; };
+		8E73598B25F5C58E00C4DBC6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73598A25F5C58E00C4DBC6 /* Constants.swift */; };
 		8EA3866325F1D939003B399A /* UniversityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3866225F1D939003B399A /* UniversityApp.swift */; };
 		8EA3866525F1D939003B399A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3866425F1D939003B399A /* MainView.swift */; };
 		8EA3866725F1D93C003B399A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EA3866625F1D93C003B399A /* Assets.xcassets */; };
@@ -19,12 +21,15 @@
 		8EA3868425F20900003B399A /* ActivityIndicatorViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3868325F20900003B399A /* ActivityIndicatorViewRepresentable.swift */; };
 		8EA3868825F28097003B399A /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3868725F28097003B399A /* SafariView.swift */; };
 		8EA8147E25F34661009F9293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8147D25F34661009F9293 /* AppDelegate.swift */; };
+		8ECF374E25F81FF200924C07 /* me-too.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8ECF374D25F81FF200924C07 /* me-too.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		799BE525D69BE0B4A1970E09 /* Pods-University.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University.release.xcconfig"; path = "Target Support Files/Pods-University/Pods-University.release.xcconfig"; sourceTree = "<group>"; };
 		8E73598325F353FA00C4DBC6 /* University.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = University.entitlements; sourceTree = "<group>"; };
 		8E73598425F35AEF00C4DBC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8E73598825F496F300C4DBC6 /* good-things-happen.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "good-things-happen.caf"; sourceTree = "<group>"; };
+		8E73598A25F5C58E00C4DBC6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8EA3865F25F1D939003B399A /* University.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = University.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA3866225F1D939003B399A /* UniversityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityApp.swift; sourceTree = "<group>"; };
 		8EA3866425F1D939003B399A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -37,6 +42,7 @@
 		8EA3868325F20900003B399A /* ActivityIndicatorViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewRepresentable.swift; sourceTree = "<group>"; };
 		8EA3868725F28097003B399A /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		8EA8147D25F34661009F9293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8ECF374D25F81FF200924C07 /* me-too.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "me-too.caf"; sourceTree = "<group>"; };
 		ADE5FF74A006951FA2D4E6CE /* Pods_University.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_University.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8AA742262CED7F2E4AD0E3 /* Pods-University.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University.debug.xcconfig"; path = "Target Support Files/Pods-University/Pods-University.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +79,7 @@
 		8EA3865625F1D939003B399A = {
 			isa = PBXGroup;
 			children = (
+				8ECF374C25F81FDC00924C07 /* Sounds */,
 				8E73598425F35AEF00C4DBC6 /* GoogleService-Info.plist */,
 				8EA3866125F1D939003B399A /* University */,
 				8EA3866025F1D939003B399A /* Products */,
@@ -104,6 +111,7 @@
 				8EA3868325F20900003B399A /* ActivityIndicatorViewRepresentable.swift */,
 				8EA3868725F28097003B399A /* SafariView.swift */,
 				8EA8147D25F34661009F9293 /* AppDelegate.swift */,
+				8E73598A25F5C58E00C4DBC6 /* Constants.swift */,
 			);
 			path = University;
 			sourceTree = "<group>";
@@ -122,6 +130,15 @@
 				8EA3867D25F20246003B399A /* Response.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8ECF374C25F81FDC00924C07 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				8ECF374D25F81FF200924C07 /* me-too.caf */,
+				8E73598825F496F300C4DBC6 /* good-things-happen.caf */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +201,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EA3866A25F1D93C003B399A /* Preview Assets.xcassets in Resources */,
+				8ECF374E25F81FF200924C07 /* me-too.caf in Resources */,
 				8EA3866725F1D93C003B399A /* Assets.xcassets in Resources */,
+				8E73598925F496F300C4DBC6 /* good-things-happen.caf in Resources */,
 				8E73598525F35AEF00C4DBC6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +265,7 @@
 				8EA3867625F1DA1A003B399A /* ViewModel.swift in Sources */,
 				8EA3866325F1D939003B399A /* UniversityApp.swift in Sources */,
 				8EA3868825F28097003B399A /* SafariView.swift in Sources */,
+				8E73598B25F5C58E00C4DBC6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +323,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -358,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -377,6 +397,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = University/University.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"University/Preview Content\"";
 				DEVELOPMENT_TEAM = A3Q9RY428D;
 				ENABLE_PREVIEWS = YES;
@@ -402,6 +423,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = University/University.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"University/Preview Content\"";
 				DEVELOPMENT_TEAM = A3Q9RY428D;
 				ENABLE_PREVIEWS = YES;
