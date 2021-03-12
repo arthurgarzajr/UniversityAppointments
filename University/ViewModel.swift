@@ -26,13 +26,14 @@ class ViewModel: ObservableObject {
     @Published var showAppointmentsPage = false
     
     var subscriptions = Set<AnyCancellable>()
-    
-    
+    var checkingForAppointmentsSubscriber: AnyCancellable?
     
     var appointmentSoundEffect: AVAudioPlayer?
     
     var timer = Timer()
     
+    var signUpAndScheduleRequest: DataRequest?
+    var apiRequest: DataRequest?
     @Published var delay: Int = 0
     
     init() {
@@ -44,11 +45,16 @@ class ViewModel: ObservableObject {
         }
         .store(in: &subscriptions)
         
+        $showAppointmentsPage.sink { showing in
+//            self.cancelRequests()
+        }
+        .store(in: &subscriptions)
+        
 
         let audioSession = AVAudioSession.sharedInstance()
 
         do {
-            try audioSession.setCategory(AVAudioSession.Category.playAndRecord, mode: .spokenAudio, options: .defaultToSpeaker)
+            try audioSession.setCategory(.ambient, mode: .spokenAudio, options: .defaultToSpeaker)
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
             
@@ -64,11 +70,15 @@ class ViewModel: ObservableObject {
     }
     
     func checkForAppointments() {
+        guard !showAppointmentsPage else {
+            return
+        }
+        
         checkingForAppointments = true
         
-        self.clearCookies(for: self.signUpAndScheduleURL)
+        clearCookies(for: self.signUpAndScheduleURL)
         
-        AF.request(signUpAndScheduleURL).responseString { response in
+        signUpAndScheduleRequest = AF.request(signUpAndScheduleURL).responseString { response in
             guard let doc: Document = try? SwiftSoup.parse(response.value ?? ""), let urlResponse = response.response else {
                 print("Error")
                 self.checkingForAppointments = false
@@ -116,7 +126,7 @@ class ViewModel: ObservableObject {
                 "filters": "{\"Providers\":{\"51585\":true},\"Departments\":{\"10554002\":true},\"DaysOfWeek\":{\"0\":true,\"1\":true,\"2\":true,\"3\":true,\"4\":true,\"5\":true,\"6\":true},\"TimesOfDay\":\"both\"}"
             ]
             
-            AF.request(universityApiUrl, method: .post, parameters: data, headers: headers).responseJSON { response in
+            self.apiRequest = AF.request(universityApiUrl, method: .post, parameters: data, headers: headers).responseJSON { response in
                 guard let dictionary = response.value as? NSDictionary else {
                     self.appointmentsAvailable = false
                     if self.shouldCheckForAppointments {
@@ -124,15 +134,16 @@ class ViewModel: ObservableObject {
                     }
                     return
                 }
-                print(dictionary)
+                //print(dictionary)
                 if let appointments = dictionary["ByDateThenProviderCollated"] as? NSDictionary, appointments.count > 0 {
                     print("Available")
+                    
+                    
                     self.appointmentsAvailable = true
-                    if appointments.count == 1 {
-                        self.appointmentsAvailableMessage = "1 appointment available"
-                    } else {
-                        self.appointmentsAvailableMessage = String(appointments.count) + " appointments available"
-                    }
+                    self.showAppointmentsPage = true
+                    
+                    self.appointmentsAvailableMessage = appointments.count == 1 ? "1 appointment available" : String(appointments.count) + " appointments available"
+
                 } else {
                     print("Not Available")
                     self.appointmentsAvailableMessage = ""
@@ -186,6 +197,18 @@ class ViewModel: ObservableObject {
         checkForAppointments()
     }
     
+    func waitForCheckerToStopBeforeShowingWebpage() {
+        cancelRequests()
+        if checkingForAppointments {
+            checkingForAppointmentsSubscriber = $checkingForAppointments.sink { checkingForAppointments in
+                if !checkingForAppointments {
+                    self.showAppointmentsPage = true
+                    self.checkingForAppointmentsSubscriber?.cancel()
+                }
+            }
+        }
+    }
+    
     func startChecking() {
         shouldCheckForAppointments = true
         UserDefaults.standard.set(true, forKey: "shouldCheckForAppointments")
@@ -198,8 +221,13 @@ class ViewModel: ObservableObject {
         timer.invalidate()
     }
     
+    func cancelRequests() {
+        apiRequest?.cancel()
+        signUpAndScheduleRequest?.cancel()
+    }
+    
     func clearCookies(for urlString: String) {
-        guard let url = URL(string: urlString), !showAppointmentsPage else {
+        guard let url = URL(string: urlString), !showAppointmentsPage, !appointmentsAvailable else {
             return
         }
         

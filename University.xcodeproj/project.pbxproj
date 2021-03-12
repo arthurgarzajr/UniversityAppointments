@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		72D8AEA07DC6ACCE72EB5017 /* Pods_University.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE5FF74A006951FA2D4E6CE /* Pods_University.framework */; };
+		8E156D6D25FAAB6B00393034 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E156D6C25FAAB6B00393034 /* WebView.swift */; };
 		8E73598525F35AEF00C4DBC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E73598425F35AEF00C4DBC6 /* GoogleService-Info.plist */; };
 		8E73598925F496F300C4DBC6 /* good-things-happen.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8E73598825F496F300C4DBC6 /* good-things-happen.caf */; };
 		8E73598B25F5C58E00C4DBC6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73598A25F5C58E00C4DBC6 /* Constants.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		799BE525D69BE0B4A1970E09 /* Pods-University.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University.release.xcconfig"; path = "Target Support Files/Pods-University/Pods-University.release.xcconfig"; sourceTree = "<group>"; };
+		8E156D6C25FAAB6B00393034 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		8E73598325F353FA00C4DBC6 /* University.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = University.entitlements; sourceTree = "<group>"; };
 		8E73598425F35AEF00C4DBC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E73598825F496F300C4DBC6 /* good-things-happen.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "good-things-happen.caf"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				8EA3868725F28097003B399A /* SafariView.swift */,
 				8EA8147D25F34661009F9293 /* AppDelegate.swift */,
 				8E73598A25F5C58E00C4DBC6 /* Constants.swift */,
+				8E156D6C25FAAB6B00393034 /* WebView.swift */,
 			);
 			path = University;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EA8147E25F34661009F9293 /* AppDelegate.swift in Sources */,
+				8E156D6D25FAAB6B00393034 /* WebView.swift in Sources */,
 				8EA3867E25F20246003B399A /* Response.swift in Sources */,
 				8EA3868125F208DF003B399A /* ActivityIndicatorView.swift in Sources */,
 				8EA3868425F20900003B399A /* ActivityIndicatorViewRepresentable.swift in Sources */,
@@ -409,6 +413,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sa.University;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -435,6 +440,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sa.University;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

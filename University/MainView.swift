@@ -74,7 +74,7 @@ struct MainView: View {
                 Spacer()
                 
                 Button {
-                    viewModel.showAppointmentsPage = true
+                    viewModel.waitForCheckerToStopBeforeShowingWebpage()
                 } label: {
                     HStack {
                         Image(systemName: "safari")
@@ -87,7 +87,7 @@ struct MainView: View {
                 .cornerRadius(12.0)
                 .padding()
                 .sheet(isPresented: $viewModel.showAppointmentsPage, content: {
-                    SafariView(url: URL(string: viewModel.signUpAndScheduleURL))
+                    WebViewUI(url: viewModel.signUpAndScheduleURL)
                 })
             }
             
