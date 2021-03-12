@@ -206,6 +206,8 @@ class ViewModel: ObservableObject {
                     self.checkingForAppointmentsSubscriber?.cancel()
                 }
             }
+        } else {
+            self.showAppointmentsPage = true
         }
     }
     
