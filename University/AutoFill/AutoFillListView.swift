@@ -16,11 +16,14 @@ struct AutoFillListView: View {
     
     var body: some View {
         NavigationView {
-            List(viewModel.people!) { person in
-                Text(person.firstName)
+            List {
+                ForEach(viewModel.people!) { person in
+                    Text(person.firstName + " " + person.lastName)
+                }
+                .onDelete(perform: delete)
             }
             .sheet(isPresented: $showingAddPerson, content: {
-                AutofillFormView()
+                AutofillFormView(viewModel: viewModel, completed: viewModel.reloadPeople)
             })
             .navigationBarItems(leading: Button("Close", action: {
                 presentationMode.wrappedValue.dismiss()
@@ -29,6 +32,14 @@ struct AutoFillListView: View {
             }))
             .navigationTitle("Autofill")
         }
+        .onAppear(perform: {
+            print("Appeared")
+        })
+    }
+    
+    func delete(at offsets: IndexSet) {
+        viewModel.people?.remove(atOffsets: offsets)
+        PeopleUtil.savePeople(people: viewModel.people!)
     }
 }
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		72D8AEA07DC6ACCE72EB5017 /* Pods_University.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADE5FF74A006951FA2D4E6CE /* Pods_University.framework */; };
 		8E156D6D25FAAB6B00393034 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E156D6C25FAAB6B00393034 /* WebView.swift */; };
+		8E17E9F725FC75420082A745 /* AutoFillFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E17E9F625FC75420082A745 /* AutoFillFormViewModel.swift */; };
+		8E17E9FA25FC774E0082A745 /* PeopleUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E17E9F925FC774E0082A745 /* PeopleUtil.swift */; };
 		8E705A4C25FBFF8100885C7C /* AutoFillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E705A4B25FBFF8100885C7C /* AutoFillListView.swift */; };
 		8E705A4E25FBFF8D00885C7C /* AutoFillListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E705A4D25FBFF8D00885C7C /* AutoFillListViewModel.swift */; };
 		8E705A5025FBFFB900885C7C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E705A4F25FBFFB900885C7C /* Person.swift */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		799BE525D69BE0B4A1970E09 /* Pods-University.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University.release.xcconfig"; path = "Target Support Files/Pods-University/Pods-University.release.xcconfig"; sourceTree = "<group>"; };
 		8E156D6C25FAAB6B00393034 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		8E17E9F625FC75420082A745 /* AutoFillFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFillFormViewModel.swift; sourceTree = "<group>"; };
+		8E17E9F925FC774E0082A745 /* PeopleUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleUtil.swift; sourceTree = "<group>"; };
 		8E705A4B25FBFF8100885C7C /* AutoFillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFillListView.swift; sourceTree = "<group>"; };
 		8E705A4D25FBFF8D00885C7C /* AutoFillListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFillListViewModel.swift; sourceTree = "<group>"; };
 		8E705A4F25FBFFB900885C7C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				8E705A4D25FBFF8D00885C7C /* AutoFillListViewModel.swift */,
 				8E705A4F25FBFFB900885C7C /* Person.swift */,
 				8E8C74A225FC6277008D5D60 /* People.swift */,
+				8E17E9F625FC75420082A745 /* AutoFillFormViewModel.swift */,
+				8E17E9F925FC774E0082A745 /* PeopleUtil.swift */,
 			);
 			path = AutoFill;
 			sourceTree = "<group>";
@@ -289,7 +295,9 @@
 				8EA3867E25F20246003B399A /* Response.swift in Sources */,
 				8E8C74A325FC6277008D5D60 /* People.swift in Sources */,
 				8E705A5025FBFFB900885C7C /* Person.swift in Sources */,
+				8E17E9F725FC75420082A745 /* AutoFillFormViewModel.swift in Sources */,
 				8E92493825FBFC9D00834346 /* AutofillFormView.swift in Sources */,
+				8E17E9FA25FC774E0082A745 /* PeopleUtil.swift in Sources */,
 				8EA3868125F208DF003B399A /* ActivityIndicatorView.swift in Sources */,
 				8EA3868425F20900003B399A /* ActivityIndicatorViewRepresentable.swift in Sources */,
 				8EA3866525F1D939003B399A /* MainView.swift in Sources */,

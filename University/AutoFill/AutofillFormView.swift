@@ -9,27 +9,32 @@ import SwiftUI
 
 struct AutofillFormView: View {
     
-    @StateObject var viewModel = AutoFillListViewModel()
+    @StateObject var formViewModel = AutoFillFormViewModel()
+    @ObservedObject var viewModel: AutoFillListViewModel
     @Environment(\.presentationMode) var presentationMode
+    
+    var completed: () -> ()
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("First Name", text: $viewModel.firstName)
-                    TextField("Last Name", text: $viewModel.lastName)
-                    TextField("Date of Birth (MM/DD/YYYY)", text: $viewModel.dateOfBirth)
-                    TextField("Address Line 1", text: $viewModel.addressLine1)
-                    TextField("City", text: $viewModel.city)
-                    TextField("Zip Code", text: $viewModel.zipCode)
-                    TextField("Mobile Phone", text: $viewModel.mobilePhone)
-                    TextField("Email", text: $viewModel.email)
+                    TextField("First Name", text: $formViewModel.firstName)
+                    TextField("Last Name", text: $formViewModel.lastName)
+                    TextField("Date of Birth (MM/DD/YYYY)", text: $formViewModel.dateOfBirth)
+                    TextField("Address Line 1", text: $formViewModel.addressLine1)
+                    TextField("City", text: $formViewModel.city)
+                    TextField("Zip Code", text: $formViewModel.zipCode)
+                    TextField("Mobile Phone", text: $formViewModel.mobilePhone)
+                    TextField("Email", text: $formViewModel.email)
                 }
             }
             .navigationBarItems(leading: Button("Cancel", action: {
                 presentationMode.wrappedValue.dismiss()
-            }), trailing: Button("Done", action: {
-                
+            }), trailing: Button("Save", action: {
+                self.formViewModel.savePerson()
+                presentationMode.wrappedValue.dismiss()
+                completed()
             }))
             .navigationTitle("Add Person")
         }
@@ -38,6 +43,6 @@ struct AutofillFormView: View {
 
 struct AutofillFormView_Previews: PreviewProvider {
     static var previews: some View {
-        AutofillFormView()
+        AutofillFormView(viewModel: AutoFillListViewModel(), completed: { } )
     }
 }
