@@ -22,15 +22,13 @@ struct WebViewUI: View {
                 
             }
             .actionSheet(isPresented: $showingActionSheet) {
-                let actionSheet = ActionSheet(title: Text("Change background"), message: Text("Select a new color"), buttons: [
-                    .default(Text("Arthur Garza")) {
-                        webViewStateModel.autoFill(name: "Arthur Garza")
-                        
-                    },
-                    .cancel()
-                ])
-                
-                return actionSheet
+                let people = PeopleUtil.readPeople()
+                let buttons = people.enumerated().map { i, person in
+                    Alert.Button.default(Text(person.firstName + " " + person.lastName), action: { webViewStateModel.autoFill(name: person.firstName) } )
+                }
+                return ActionSheet(title: Text("Autofill"),
+                                   message: Text("Select a person for this vaccine."),
+                                   buttons: buttons + [Alert.Button.cancel()])
             }
             .navigationBarTitle(Text(webViewStateModel.pageTitle), displayMode: .inline)
             .navigationBarItems(trailing:

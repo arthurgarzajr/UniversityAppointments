@@ -10,9 +10,12 @@ import Foundation
 struct Person: Codable, Identifiable {
     var id = UUID()
     var firstName: String
+    var middleName: String
     var lastName: String
+    var gender: String
     var dateOfBirth: String
     var addressLine1: String
+    var addressLine2: String
     var city: String
     var zipCode: String
     var mobilePhone: String
@@ -20,9 +23,12 @@ struct Person: Codable, Identifiable {
     
     init() {
         self.firstName = ""
+        self.middleName = ""
         self.lastName = ""
+        self.gender = ""
         self.dateOfBirth = ""
         self.addressLine1 = ""
+        self.addressLine2 = ""
         self.city = ""
         self.zipCode = ""
         self.mobilePhone = ""
