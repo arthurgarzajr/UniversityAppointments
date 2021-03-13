@@ -24,6 +24,7 @@ class ViewModel: ObservableObject {
     
     @Published var shouldCheckForAppointments = false
     @Published var showAppointmentsPage = false
+    @Published var showAutofillPage = false
     
     var subscriptions = Set<AnyCancellable>()
     var checkingForAppointmentsSubscriber: AnyCancellable?

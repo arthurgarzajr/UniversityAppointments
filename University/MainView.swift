@@ -53,7 +53,7 @@ struct MainView: View {
                     Text(String(describing: viewModel.delay))
                         .padding(.trailing)
                 }
-            
+                
                 
                 
                 if viewModel.appointmentsAvailable {
@@ -92,7 +92,15 @@ struct MainView: View {
             }
             
             .navigationTitle("University Checker")
-            .navigationBarItems(trailing: viewModel.checkingForAppointments ? AnyView(ActivityIndicatorView(message: "Checking")) : AnyView(EmptyView()))
+            .navigationBarItems(
+                leading: Button("Autofill", action: {
+                    self.viewModel.showAutofillPage = true
+                })
+                .sheet(isPresented: $viewModel.showAutofillPage, content: {
+                    AutoFillListView()
+                }),
+                trailing: viewModel.checkingForAppointments ? AnyView(ActivityIndicatorView(message: "Checking")) : AnyView(EmptyView()))
+            
             
         }
     }

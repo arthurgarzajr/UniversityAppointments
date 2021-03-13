@@ -97,16 +97,42 @@ class WebViewStateModel: ObservableObject {
     let webView = WKWebView()
     
     func autoFill(name: String) {
-        let firstName = "FirstName"
-        let arthur = "Arthur"
         
-        let enableAutocomplete = "document.getElementById('FirstName').value = 'Arthur'"
-        _ = "document.getElementById('\(firstName)\').value = '\(arthur)'"
-        webView.evaluateJavaScript(enableAutocomplete) { result, error in
-            
+        let firstName = "document.getElementById('FirstName').value = 'Arthur'"
+        webView.evaluateJavaScript(firstName) { result, error in
             print(error)
         }
         
+        let lastName = "document.getElementById('LastName').value = 'Garza'"
+        webView.evaluateJavaScript(lastName) { result, error in
+            print(error)
+        }
+        
+        let dateOfBirth = "document.getElementById('DateOfBirthStr').value = '05/14/1989'"
+        webView.evaluateJavaScript(dateOfBirth) { result, error in
+            print(error)
+        }
+        
+        let addressLine1 = "document.getElementById('AddressLine1').value = '7524 Linkview St'"
+        webView.evaluateJavaScript(addressLine1) { result, error in
+            print(error)
+        }
+        let city = "document.getElementById('City').value = 'San Antonio'"
+        webView.evaluateJavaScript(city) { result, error in
+            print(error)
+        }
+        let postalCode = "document.getElementById('PostalCode').value = '78240'"
+        webView.evaluateJavaScript(postalCode) { result, error in
+            print(error)
+        }
+        let mobilePhone = "document.getElementById('MobilePhone').value = '2108848473'"
+        webView.evaluateJavaScript(mobilePhone) { result, error in
+            print(error)
+        }
+        let email = "document.getElementById('Email').value = 'arthur.garzajr@gmail.com'"
+        webView.evaluateJavaScript(email) { result, error in
+            print(error)
+        }
     }
 }
 
