@@ -17,8 +17,15 @@ struct AutoFillListView: View {
     var body: some View {
         NavigationView {
             List {
+                
                 ForEach(viewModel.people!) { person in
-                    Text(person.firstName + " " + person.lastName)
+                    let autoFillEditFormViewModel = AutoFillEditFormViewModel(person: person)
+                    NavigationLink(destination: AutoFillEditFormView(viewModel: autoFillEditFormViewModel) {
+                        viewModel.reloadPeople()
+                    }) {
+                        let firstAndLastName = person.firstName + " " + person.lastName
+                        Text(firstAndLastName)
+                    }
                 }
                 .onDelete(perform: delete)
             }
@@ -32,9 +39,6 @@ struct AutoFillListView: View {
             }))
             .navigationTitle("Autofill")
         }
-        .onAppear(perform: {
-            print("Appeared")
-        })
     }
     
     func delete(at offsets: IndexSet) {

@@ -87,7 +87,7 @@ struct MainView: View {
                 .cornerRadius(12.0)
                 .padding()
                 .sheet(isPresented: $viewModel.showAppointmentsPage, content: {
-                    WebViewUI(url: viewModel.signUpAndScheduleURL)
+                    WebViewUI(url: viewModel.signUpAndScheduleURL, dismissAction: viewModel.webViewDismissed)
                 })
             }
             
@@ -100,8 +100,6 @@ struct MainView: View {
                     AutoFillListView()
                 }),
                 trailing: viewModel.checkingForAppointments ? AnyView(ActivityIndicatorView(message: "Checking")) : AnyView(EmptyView()))
-            
-            
         }
     }
 }

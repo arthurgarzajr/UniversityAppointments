@@ -21,6 +21,7 @@ class ViewModel: ObservableObject {
     @Published var appointmentsAvailableMessage = ""
     
     @Published var checkingForAppointments = false
+    @Published var pausedCheckingForAppointments = false
     
     @Published var shouldCheckForAppointments = false
     @Published var showAppointmentsPage = false
@@ -47,7 +48,9 @@ class ViewModel: ObservableObject {
         .store(in: &subscriptions)
         
         $showAppointmentsPage.sink { showing in
-//            self.cancelRequests()
+            if self.checkingForAppointments {
+                self.pausedCheckingForAppointments = true
+            }
         }
         .store(in: &subscriptions)
         
@@ -220,6 +223,7 @@ class ViewModel: ObservableObject {
     
     func stopChecking() {
         shouldCheckForAppointments = false
+        pausedCheckingForAppointments = false
         UserDefaults.standard.set(true, forKey: "shouldCheckForAppointments")
         timer.invalidate()
     }
@@ -239,6 +243,12 @@ class ViewModel: ObservableObject {
             for cookie in cookies {
                 cstorage.deleteCookie(cookie)
             }
+        }
+    }
+    
+    func webViewDismissed() {
+        if pausedCheckingForAppointments {
+            checkForAppointments()
         }
     }
     
