@@ -51,6 +51,10 @@ class ViewModel: ObservableObject {
             if self.checkingForAppointments {
                 self.pausedCheckingForAppointments = true
             }
+            
+            if !showing {
+                self.clearCookies(for: self.signUpAndScheduleURL)
+            }
         }
         .store(in: &subscriptions)
         
