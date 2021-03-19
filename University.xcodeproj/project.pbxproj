@@ -31,6 +31,7 @@
 		8EA3868425F20900003B399A /* ActivityIndicatorViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3868325F20900003B399A /* ActivityIndicatorViewRepresentable.swift */; };
 		8EA3868825F28097003B399A /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3868725F28097003B399A /* SafariView.swift */; };
 		8EA8147E25F34661009F9293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8147D25F34661009F9293 /* AppDelegate.swift */; };
+		8EAFCDAB26050CE700F95D9E /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAFCDAA26050CE700F95D9E /* Observer.swift */; };
 		8ECF374E25F81FF200924C07 /* me-too.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8ECF374D25F81FF200924C07 /* me-too.caf */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		8EA3868325F20900003B399A /* ActivityIndicatorViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewRepresentable.swift; sourceTree = "<group>"; };
 		8EA3868725F28097003B399A /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		8EA8147D25F34661009F9293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8EAFCDAA26050CE700F95D9E /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		8ECF374D25F81FF200924C07 /* me-too.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "me-too.caf"; sourceTree = "<group>"; };
 		ADE5FF74A006951FA2D4E6CE /* Pods_University.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_University.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8AA742262CED7F2E4AD0E3 /* Pods-University.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University.debug.xcconfig"; path = "Target Support Files/Pods-University/Pods-University.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				8EA8147D25F34661009F9293 /* AppDelegate.swift */,
 				8E73598A25F5C58E00C4DBC6 /* Constants.swift */,
 				8E156D6C25FAAB6B00393034 /* WebView.swift */,
+				8EAFCDAA26050CE700F95D9E /* Observer.swift */,
 			);
 			path = University;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E705A4C25FBFF8100885C7C /* AutoFillListView.swift in Sources */,
+				8EAFCDAB26050CE700F95D9E /* Observer.swift in Sources */,
 				8EA8147E25F34661009F9293 /* AppDelegate.swift in Sources */,
 				8E156D6D25FAAB6B00393034 /* WebView.swift in Sources */,
 				8EA3867E25F20246003B399A /* Response.swift in Sources */,
@@ -445,12 +449,12 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = University/University.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"University/Preview Content\"";
 				DEVELOPMENT_TEAM = A3Q9RY428D;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = University/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,12 +476,12 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = University/University.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"University/Preview Content\"";
 				DEVELOPMENT_TEAM = A3Q9RY428D;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = University/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

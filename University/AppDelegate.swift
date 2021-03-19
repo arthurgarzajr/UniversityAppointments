@@ -27,7 +27,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         Messaging.messaging().delegate = self
         
         Messaging.messaging().subscribe(toTopic: "appointments") { error in
-          print("Subscribed to appointments topic")
+            print("Subscribed to appointments topic")
         }
         
         return true
@@ -42,33 +42,28 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
-
+        
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
-
+        
         // Print full message.
         print(userInfo)
-
+        
         completionHandler(UIBackgroundFetchResult.newData)
     }
     
     // This function will be called when the app receive notification
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
-      // show the notification alert (banner), and with sound
-      completionHandler([.alert, .sound])
+        // show the notification alert (banner), and with sound
+        completionHandler([.alert, .sound])
     }
-      
+    
     // This function will be called right after user tap on the notification
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        Observer.fromPushNotification = true
         
-        let chromeLink = Constants.signUpAndScheduleURL.replacingOccurrences(of: "https://", with: "googlechrome://")
-        if UIApplication.shared.canOpenURL(URL(string: chromeLink)!) {
-            UIApplication.shared.open(URL(string: chromeLink)!)
-        } else {
-            UIApplication.shared.open(URL(string: Constants.signUpAndScheduleURL)!)
-        }
-      completionHandler()
+        completionHandler()
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {

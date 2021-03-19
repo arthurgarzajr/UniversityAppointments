@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var viewModel: ViewModel = ViewModel()
+    @ObservedObject var observer = Observer()
     
     var body: some View {
         NavigationView {
@@ -100,6 +101,13 @@ struct MainView: View {
                     AutoFillListView()
                 }),
                 trailing: viewModel.checkingForAppointments ? AnyView(ActivityIndicatorView(message: "Checking")) : AnyView(EmptyView()))
+        }
+        .onReceive(self.observer.$enteredForeground) { _ in
+            print("App entered foreground!")
+            if Observer.fromPushNotification {
+                viewModel.waitForCheckerToStopBeforeShowingWebpage()
+                Observer.fromPushNotification = false
+            }
         }
     }
 }
