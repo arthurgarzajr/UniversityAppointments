@@ -142,15 +142,14 @@ class ViewModel: ObservableObject {
                     }
                     return
                 }
-                //print(dictionary)
-                if let appointments = dictionary["ByDateThenProviderCollated"] as? NSDictionary, appointments.count > 0 {
+                let appointmentCount = (dictionary.description.components(separatedBy: "ArrivalTimeISO").count - 1) / 2
+                if appointmentCount > 0 {
                     print("Available")
-                    
                     
                     self.appointmentsAvailable = true
                     self.showAppointmentsPage = true
                     
-                    self.appointmentsAvailableMessage = appointments.count == 1 ? "1 appointment available" : String(appointments.count) + " appointments available"
+                    self.appointmentsAvailableMessage = appointmentCount == 1 ? "1 appointment available" : String(appointmentCount) + " appointments available"
 
                 } else {
                     print("Not Available")
