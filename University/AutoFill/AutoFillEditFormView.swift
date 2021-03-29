@@ -56,5 +56,6 @@ struct AutoFillEditFormView: View {
             completed()
             presentationMode.wrappedValue.dismiss()
         }))
+        .navigationTitle("\(viewModel.person.firstName) \(viewModel.person.lastName)")
     }
 }
