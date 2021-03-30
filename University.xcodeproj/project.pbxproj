@@ -16,7 +16,6 @@
 		8E705A4C25FBFF8100885C7C /* AutoFillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E705A4B25FBFF8100885C7C /* AutoFillListView.swift */; };
 		8E705A4E25FBFF8D00885C7C /* AutoFillListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E705A4D25FBFF8D00885C7C /* AutoFillListViewModel.swift */; };
 		8E705A5025FBFFB900885C7C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E705A4F25FBFFB900885C7C /* Person.swift */; };
-		8E73598525F35AEF00C4DBC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E73598425F35AEF00C4DBC6 /* GoogleService-Info.plist */; };
 		8E73598925F496F300C4DBC6 /* good-things-happen.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8E73598825F496F300C4DBC6 /* good-things-happen.caf */; };
 		8E73598B25F5C58E00C4DBC6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73598A25F5C58E00C4DBC6 /* Constants.swift */; };
 		8E8C74A325FC6277008D5D60 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C74A225FC6277008D5D60 /* People.swift */; };
@@ -46,7 +45,6 @@
 		8E705A4D25FBFF8D00885C7C /* AutoFillListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFillListViewModel.swift; sourceTree = "<group>"; };
 		8E705A4F25FBFFB900885C7C /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		8E73598325F353FA00C4DBC6 /* University.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = University.entitlements; sourceTree = "<group>"; };
-		8E73598425F35AEF00C4DBC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E73598825F496F300C4DBC6 /* good-things-happen.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "good-things-happen.caf"; sourceTree = "<group>"; };
 		8E73598A25F5C58E00C4DBC6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E8C74A225FC6277008D5D60 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				8ECF374C25F81FDC00924C07 /* Sounds */,
-				8E73598425F35AEF00C4DBC6 /* GoogleService-Info.plist */,
 				8EA3866125F1D939003B399A /* University */,
 				8EA3866025F1D939003B399A /* Products */,
 				6DA4C022B2F70EB28E7AD250 /* Pods */,
@@ -245,7 +242,6 @@
 				8ECF374E25F81FF200924C07 /* me-too.caf in Resources */,
 				8EA3866725F1D93C003B399A /* Assets.xcassets in Resources */,
 				8E73598925F496F300C4DBC6 /* good-things-happen.caf in Resources */,
-				8E73598525F35AEF00C4DBC6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
