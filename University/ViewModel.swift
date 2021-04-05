@@ -114,24 +114,24 @@ class ViewModel: ObservableObject {
                 "Sec-Fetch-Site": "same-origin",
                 "Sec-Fetch-Mode": "cors",
                 "Sec-Fetch-Dest": "empty",
-                "Referer": "https://mychart-openscheduling.et1130.epichosted.com/MyChart/SignupAndSchedule/EmbeddedSchedule?id=51748&dept=10554003&vt=1788&view=grouped&utm_medium=email&utm_source=health_focus&utm_campaign=2-22_vaccine_appointments",
+                "Referer": "https://mychart-openscheduling.et1130.epichosted.com/MyChart/SignupAndSchedule/EmbeddedSchedule?id=51585&dept=10554002&vt=1788&view=grouped&utm_medium=email&utm_source=health_focus&utm_campaign=2-22_vaccine_appointments",
                 "Accept-Language": "en-US,en;q=0.9,ja;q=0.8",
             ]
-            
+
             let dateFormatterGet = DateFormatter()
             dateFormatterGet.dateFormat = "yyyy-MM-dd"
             
             let today = dateFormatterGet.string(from: Date())
             let future = dateFormatterGet.string(from: Calendar.current.date(byAdding: .day, value: 14, to: Date()) ?? Date())
-            
+            //https://mychart-openscheduling.et1130.epichosted.com/MyChart/SignupAndSchedule/EmbeddedSchedule?id=51585&dept=10554002&vt=1788&utm_medium=web&utm_source=corpcomm&utm_content=typed_url&utm_campaign=wecandoitsa_typed
             let data = [
-                "id": "51748",
+                "id": "51585",
                 "vt": "1788",
-                "dept": "10554003",
+                "dept": "10554002",
                 "view": "grouped",
                 "start":  today,
                 "end": future,
-                "filters": "{\"Providers\":{\"51748\":true},\"Departments\":{\"10554003\":true},\"DaysOfWeek\":{\"0\":true,\"1\":true,\"2\":true,\"3\":true,\"4\":true,\"5\":true,\"6\":true},\"TimesOfDay\":\"both\"}"
+                "filters": "{\"Providers\":{\"51585\":true},\"Departments\":{\"10554002\":true},\"DaysOfWeek\":{\"0\":true,\"1\":true,\"2\":true,\"3\":true,\"4\":true,\"5\":true,\"6\":true},\"TimesOfDay\":\"both\"}"
             ]
             
             self.apiRequest = AF.request(universityApiUrl, method: .post, parameters: data, headers: headers).responseJSON { response in

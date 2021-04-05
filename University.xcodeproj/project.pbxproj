@@ -20,6 +20,7 @@
 		8E73598B25F5C58E00C4DBC6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E73598A25F5C58E00C4DBC6 /* Constants.swift */; };
 		8E8C74A325FC6277008D5D60 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C74A225FC6277008D5D60 /* People.swift */; };
 		8E92493825FBFC9D00834346 /* AutofillFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E92493725FBFC9D00834346 /* AutofillFormView.swift */; };
+		8EA33A592612BF5F00F35312 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EA33A582612BF5F00F35312 /* GoogleService-Info.plist */; };
 		8EA3866325F1D939003B399A /* UniversityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3866225F1D939003B399A /* UniversityApp.swift */; };
 		8EA3866525F1D939003B399A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA3866425F1D939003B399A /* MainView.swift */; };
 		8EA3866725F1D93C003B399A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EA3866625F1D93C003B399A /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		8E73598A25F5C58E00C4DBC6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E8C74A225FC6277008D5D60 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		8E92493725FBFC9D00834346 /* AutofillFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutofillFormView.swift; sourceTree = "<group>"; };
+		8EA33A582612BF5F00F35312 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8EA3865F25F1D939003B399A /* University.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = University.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA3866225F1D939003B399A /* UniversityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityApp.swift; sourceTree = "<group>"; };
 		8EA3866425F1D939003B399A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		8EA3865625F1D939003B399A = {
 			isa = PBXGroup;
 			children = (
+				8EA33A582612BF5F00F35312 /* GoogleService-Info.plist */,
 				8ECF374C25F81FDC00924C07 /* Sounds */,
 				8EA3866125F1D939003B399A /* University */,
 				8EA3866025F1D939003B399A /* Products */,
@@ -240,6 +243,7 @@
 			files = (
 				8EA3866A25F1D93C003B399A /* Preview Assets.xcassets in Resources */,
 				8ECF374E25F81FF200924C07 /* me-too.caf in Resources */,
+				8EA33A592612BF5F00F35312 /* GoogleService-Info.plist in Resources */,
 				8EA3866725F1D93C003B399A /* Assets.xcassets in Resources */,
 				8E73598925F496F300C4DBC6 /* good-things-happen.caf in Resources */,
 			);
